@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tip_accept_call">接听来电</string>
+    <string name="tip_reject_call">拒接来电</string>
+    <string name="tip_end_call">挂断</string>
+
+    <string name="tip_close_camera">关闭摄像头</string>
+    <string name="tip_open_camera">打开摄像头</string>
+    <string name="tip_switch_camera">切换摄像头</string>
+    <string name="tip_close_mic">关闭麦克风</string>
+    <string name="tip_open_mic">打开麦克风</string>
+    <string name="tip_set_speaker">切换到扬声器</string>
+    <string name="tip_set_headset">切换到听筒</string>
+    <string name="tip_set_beauty">设置美颜</string>
+
+    <string name="toast_phone_empty">呼叫号码不能为空</string>
+    <string name="makecall">呼叫</string>
+    <string name="phonenum_tips">请输入需要拨打手机号</string>
+    <string name="phone_number">呼叫号码</string>
+    <string name="myphone">本机号码</string>
+    <string name="invite">邀请</string>
+    <string name="log">日志</string>
+    <string name="invite_tip">输入邀请用户id</string>
+    <string name="cancel">取消</string>
+</resources>

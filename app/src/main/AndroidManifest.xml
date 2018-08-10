@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.shouyubang.android.sybang"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 读写外部存储 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 请求访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 读取网络信息状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <!-- 获取当前wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 允许程序改变网络连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <!-- 读取手机信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 视频通话摄像头权限 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 录音权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files"/>
+        </provider>
+
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity
+            android:name=".account.LoginActivity"
+            android:label="@string/action_sign_in"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".account.RegisterActivity"
+            android:label="@string/action_sign_up"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".call.StaffListActivity"
+            android:label="@string/title_staff_list"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".record.RecordActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullTheme"/>
+        <activity
+            android:name=".record.PlayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullTheme"/>
+        <activity
+            android:name=".call.CommentActivity"
+            android:label="@string/title_service_comment"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".call.CallActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".record.BranchActivity"
+            android:label="@string/title_offline_service"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".record.VideoListActivity"
+            android:label="@string/title_video_message"/>
+        <activity
+            android:name=".media.PlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity
+            android:name=".media.RecyclerViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".career.JobDetailActivity"
+            android:label="@string/title_job_detail"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".web.WebPageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".account.ProfileEditActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_profile_edit">
+        </activity>
+        <activity
+            android:name=".account.SettingsActivity"
+            android:label="@string/title_settings"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".record.PostVideoActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:label="@string/title_post_video"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".account.AboutActivity"
+            android:parentActivityName=".account.SettingsActivity">
+        </activity>
+        <activity
+            android:name=".account.ProfileInfoActivity"
+            android:label="@string/title_profile_info"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".account.FeedbackActivity"
+            android:label="@string/title_feedback"
+            android:parentActivityName=".account.SettingsActivity">
+        </activity>
+        <activity
+            android:name=".career.ApplicationActivity"
+            android:label="@string/title_application"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".wallet.WalletActivity"
+            android:label="@string/title_wallet"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity android:name=".wallet.RechargeActivity"
+            android:label="积分充值"
+            android:parentActivityName=".wallet.WalletActivity">
+        </activity>
+
+        <activity android:name=".news.NewsDetailActivity"
+            android:label="天天阅读"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".wxapi.WXPayEntryActivity"
+            android:parentActivityName=".wallet.WalletActivity"
+            android:exported="true"/>
+    </application>
+
+</manifest>

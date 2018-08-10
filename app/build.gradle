@@ -1,0 +1,88 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+        applicationId "com.shouyubang.android.sybang"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 2
+        versionName "1.1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        release {
+            keyAlias 'shouyubangKey'
+            keyPassword 'dlut1949'
+            storeFile file('C:/Users/lenovo/Documents/wurengao.jks')
+            storePassword 'wrg.529'
+        }
+        debug {
+            keyAlias 'shouyubangKey'
+            keyPassword 'dlut1949'
+            storeFile file('C:/Users/lenovo/Documents/wurengao.jks')
+            storePassword 'wrg.529'
+        }
+        buildTypes {
+            debug {
+                signingConfig signingConfigs.debug
+            }
+            release {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+}
+
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+    google()
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.tsy:pay:1.0.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support:support-vector-drawable:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:support-annotations:25.3.1'
+    compile 'com.tencent.callsdk:callsdk:1.0.27'
+    compile 'com.tencent.ilivesdk:ilivesdk:1.6.3'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.jakewharton:butterknife:8.6.0'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    compile 'com.tencent.cos:cos:4.3.2'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.shuyu:GSYVideoPlayer:1.6.7'
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    compile 'com.jude:rollviewpager:1.4.6'
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    testCompile 'junit:junit:4.12'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.0.2'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+    compile files('libs/MobCommons-2017.0607.1736.jar')
+    compile files('libs/MobTools-2017.0607.1736.jar')
+    compile name: 'SMSSDK-3.0.0', ext: 'aar'
+    compile name: 'SMSSDKGUI-3.0.0', ext: 'aar'
+    //compile 'io.github.mayubao:pay_library:1.0.1'
+}
